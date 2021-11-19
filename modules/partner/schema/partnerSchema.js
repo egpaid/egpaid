@@ -28,10 +28,9 @@ const partner = mongoose.Schema({
         match: [/\S+@\S+\.\S+/, 'is invalid']
     },
 
-    phoneNo : {
-        type : String,
-        minLength : 10,
-        maxLength : 10
+    mobileVerified : {
+        type : Boolean,
+        default : false
     },
 
     dob : {
@@ -110,12 +109,10 @@ const partner = mongoose.Schema({
         type : String
     },
 
-    mobileVerifyStatus : {
-        type : String
-    },
-
     kycStatus : {
-        type : String
+        type : String,
+        enum : ["approved" , "submit" , "notSubmit"],
+        default : "notSubmit"
     },
 
     package : {
